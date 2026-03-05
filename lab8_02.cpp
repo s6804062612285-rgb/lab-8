@@ -5,6 +5,7 @@ char charkeys[10] = {'D', 'B', 'D', 'C', 'C', 'D', 'A', 'E', 'A', 'D'};
 
 int main() {
     int i;
+    int count_no1 = 0;
     char ans[8][10] = {
         {'A','B','A','C','C','D','E','E','A','D'},
         {'D','B','A','B','C','A','E','E','A','D'},
@@ -18,7 +19,12 @@ int main() {
 
     for (i = 0; i < 8; i++) {
         printf("std %d => %d\n", i + 1, checkscore(ans[i]));
+        if (ans[i][0] == charkeys[0]) {
+            count_no1++;
+        }
     }
+    
+    printf("\nTotal correct for 1: %d\n", count_no1);
 
     return 0;
 }
@@ -26,9 +32,7 @@ int main() {
 int checkscore(char std[]) {
     int score = 0, i;
     for (i = 0; i < 10; i++) {
-        if (std[i] == charkeys[i]) {
-            score++;
-        }
+        if (std[i] == charkeys[i]) score++;
     }
     return score;
 }
